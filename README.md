@@ -6,6 +6,7 @@ I AM NOT RESPONSIBLE FOR THE LOSSES YOU INCUR. INDICATOR IS JUST FOR MY TESTING.
 A PyQt5 desktop application that scans NSE (Indian) stocks for buy/sell signals
 based on daily ADR (Average Daily Range) bands and volume, with live 15-minute
 candlestick charts.
+<img width="1023" height="946" alt="image" src="https://github.com/user-attachments/assets/6673e5a8-5fc3-4307-af98-e3d479dea34b" />
 
 ## Features
 
