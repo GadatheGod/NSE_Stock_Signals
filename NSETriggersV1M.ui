@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1013</width>
+    <height>885</height>
+   </rect>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Stock GUI Signals V1</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icon.png</normaloff>icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="symbol_file_button">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>790</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select File</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="month_filter_combobox">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>760</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>This Month</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Last Month</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Last Last Month</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QCheckBox" name="process_symbolsd_checkbox">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>790</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Daily Buy/Sell</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stop_button">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>760</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Stop</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="process_symbolsc_checkbox">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>820</y>
+      <width>111</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Combined Buy/Sell</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="date_filter_combobox">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>790</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Today</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Today-1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Today-2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Today-3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Today-4</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QTabWidget" name="notebookm">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>999</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Triangular</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="elideMode">
+     <enum>Qt::ElideNone</enum>
+    </property>
+    <widget class="QWidget" name="MBS">
+     <attribute name="title">
+      <string>Month Buy Signal</string>
+     </attribute>
+     <widget class="QTreeWidget" name="buym_tab">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>991</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContents</enum>
+      </property>
+      <property name="uniformRowHeights">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="animated">
+       <bool>true</bool>
+      </property>
+      <property name="allColumnsShowFocus">
+       <bool>true</bool>
+      </property>
+      <property name="columnCount">
+       <number>4</number>
+      </property>
+      <attribute name="headerDefaultSectionSize">
+       <number>175</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Symbol</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Timestamp</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Close Price</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Zones</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="MSS">
+     <attribute name="title">
+      <string>Month Sell Signal</string>
+     </attribute>
+     <widget class="QTreeWidget" name="sellm_tab">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>991</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContents</enum>
+      </property>
+      <property name="uniformRowHeights">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="animated">
+       <bool>true</bool>
+      </property>
+      <property name="allColumnsShowFocus">
+       <bool>true</bool>
+      </property>
+      <property name="columnCount">
+       <number>4</number>
+      </property>
+      <attribute name="headerDefaultSectionSize">
+       <number>175</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Symbol</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Timestamp</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Close Price</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Zones</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QTabWidget" name="notebookd">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>999</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Triangular</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="elideMode">
+     <enum>Qt::ElideNone</enum>
+    </property>
+    <widget class="QWidget" name="DBS">
+     <attribute name="title">
+      <string>Day Buy Signal</string>
+     </attribute>
+     <widget class="QTreeWidget" name="buyd_tab">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>991</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContents</enum>
+      </property>
+      <property name="uniformRowHeights">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="animated">
+       <bool>true</bool>
+      </property>
+      <property name="allColumnsShowFocus">
+       <bool>true</bool>
+      </property>
+      <property name="columnCount">
+       <number>4</number>
+      </property>
+      <attribute name="headerDefaultSectionSize">
+       <number>175</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Symbol</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Timestamp</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Close Price</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Zones</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="DSS">
+     <attribute name="title">
+      <string>Day Sell Signal</string>
+     </attribute>
+     <widget class="QTreeWidget" name="selld_tab">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>991</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContents</enum>
+      </property>
+      <property name="uniformRowHeights">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="animated">
+       <bool>true</bool>
+      </property>
+      <property name="allColumnsShowFocus">
+       <bool>true</bool>
+      </property>
+      <property name="columnCount">
+       <number>4</number>
+      </property>
+      <attribute name="headerDefaultSectionSize">
+       <number>175</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Symbol</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Timestamp</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Close Price</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Zones</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="clear_button">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>790</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clear</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="symbol_file_entry">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>790</y>
+      <width>421</width>
+      <height>21</height>
+     </rect>
+    </property>
+     <property name="text">
+      <string/>
+     </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>850</y>
+      <width>981</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="export_button">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>790</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Export</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="open_folder_button">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>820</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>OpenFolder</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="process_button">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>760</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Process</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="process_symbolsm_checkbox">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>760</y>
+      <width>111</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Monthly Buy/Sell</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="notebookc">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>510</y>
+      <width>999</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Triangular</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="elideMode">
+     <enum>Qt::ElideNone</enum>
+    </property>
+    <widget class="QWidget" name="DBS_2">
+     <attribute name="title">
+      <string>Combined Buy Signal</string>
+     </attribute>
+     <widget class="QTreeWidget" name="buyc_tab">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>991</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContents</enum>
+      </property>
+      <property name="uniformRowHeights">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="animated">
+       <bool>true</bool>
+      </property>
+      <property name="allColumnsShowFocus">
+       <bool>true</bool>
+      </property>
+      <property name="columnCount">
+       <number>4</number>
+      </property>
+      <attribute name="headerDefaultSectionSize">
+       <number>175</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Symbol</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Timestamp</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Close Price</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Zones</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="DSS_2">
+     <attribute name="title">
+      <string>Combined Sell Signal</string>
+     </attribute>
+     <widget class="QTreeWidget" name="sellc_tab">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>991</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContents</enum>
+      </property>
+      <property name="uniformRowHeights">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="animated">
+       <bool>true</bool>
+      </property>
+      <property name="allColumnsShowFocus">
+       <bool>true</bool>
+      </property>
+      <property name="columnCount">
+       <number>4</number>
+      </property>
+      <attribute name="headerDefaultSectionSize">
+       <number>175</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Symbol</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Timestamp</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Close Price</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Zones</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="close_button">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>820</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Close</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_1">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>760</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nifty 50</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_2">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>760</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nifty Next 50</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_3">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>760</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nifty 100</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_4">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>760</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nifty 200</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_5">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>760</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nifty 500</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_6">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>760</y>
+      <width>71</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Full NSE</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clear_memory_button">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>820</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clear Cache</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

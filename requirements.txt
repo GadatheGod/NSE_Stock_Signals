@@ -1,0 +1,14 @@
+# NSE Triggers V1 — Python dependencies
+# Tested on Python 3.14 (system install). Install with:
+#   python3 -m pip install --break-system-packages -r requirements.txt
+
+PyQt5==5.15.11
+pandas==3.0.5
+numpy==2.5.2
+yfinance==1.7.0
+joblib==1.5.2
+python-dateutil==2.9.0
+mplfinance==0.12.10b0
+matplotlib==3.11.1
+xlsxwriter==3.2.9
+six==1.17.0
