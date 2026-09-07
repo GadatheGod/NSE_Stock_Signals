@@ -1,4 +1,7 @@
-# NSE Triggers V1
+DISCLAIMER
+I AM NOT RESPONSIBLE FOR THE LOSSES YOU INCUR. INDICATOR IS JUST FOR MY TESTING. I HAVE ALSO FACED LOSSES USING IT . DO NOT BLINDLY FOLLOW IT. IT IS ONLY FOR STUDY PURPOSE.
+
+# NSE_STOCK_SIGNALS
 
 A PyQt5 desktop application that scans NSE (Indian) stocks for buy/sell signals
 based on daily ADR (Average Daily Range) bands and volume, with live 15-minute
@@ -77,3 +80,6 @@ python3 -m pytest test_signals.py -v
 ```
 
 The tests run offline against synthetic DataFrames (no network required).
+
+DISCLAIMER
+I AM NOT RESPONSIBLE FOR THE LOSSES YOU INCUR. ABOVE INDICATOR IS JUST MY TESTING. I HAVE ALSO FACED LOSSES USING IT . DO NOT BLINDLY FOLLOW IT. IT IS ONLY FOR STUDY PURPOSE.
